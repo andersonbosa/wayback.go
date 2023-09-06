@@ -1,0 +1,20 @@
+name: Security scan using Synk
+
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  # pull_request: {}
+  # Scan mainline branches and report all findings:
+  # push:
+  #   branches: ["main"]
+  # Allows you to start manually
+  workflow_dispatch: {}
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
