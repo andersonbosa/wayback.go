@@ -51,7 +51,7 @@ jobs:
         # run: npm run build # TODO fix typescript types
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
           path: './${{ env.BUILD_PATH }}'
