@@ -21,12 +21,29 @@
 
 Search inside by multiple targets within the "wayback machine" using Golang.Project done with educational purpose.
 
-> Options
-> ![image](./docs/assets/images/print2.png)
+| Options                                   | Usage                                     |
+| ----------------------------------------- | ----------------------------------------- |
+| ![image](./docs/assets/images/print2.png) | ![image](./docs/assets/images/print1.png) |
 
-> Usage
-> ![image](./docs/assets/images/print1.png)
+### Video Tutorial
 
+[![asciicast](https://asciinema.org/a/606525.svg)](https://asciinema.org/a/606525)
+
+Steps:
+
+```bash
+# [optional] i will enter in a docker container to tutorials purposes
+docker run --rm -it alpine:latest sh 
+
+# downloading the application
+wget https://github.com/andersonbosa/wayback.go/raw/main/wayback.go/wayback.go
+
+# permissions
+chmod +x 
+
+# usage
+./wayback.go -details -targets http://testphp.vulnweb.com/,https://ginandjuice.shop
+```
 
 <h2 id="technologies"> 🛠️ Technologies</h2>
 
