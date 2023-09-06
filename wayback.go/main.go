@@ -77,7 +77,7 @@ func printUsage() {
 _  _  _ _______ __   __ ______  _______ _______ _     _    ______  _____ 
 |  |  | |_____|   \_/   |_____] |_____| |       |____/    |  ____ |     |
 |__|__| |     |    |    |_____] |     | |_____  |    \_ . |_____| |_____|
-                                                           Version: 1.0.0
+                                                           Version: 1.0.1
                                                     Author: @andersonbosa
 
 USAGE: wayback.go [-details] -targets target1,target2,target3
