@@ -10,7 +10,6 @@
   <p>
     <a href="#about">About</a> •
     <a href="#technologies">Technologies</a> •
-    <a href="#documentation">Documentation</a> •
     <a href="#contribution">Contribution</a> •
     <a href="#license">License</a>
   </p>
@@ -20,16 +19,20 @@
 
 <h2 id="about">💬 About</h2>
 
-TBD
+Search inside by multiple targets within the "wayback machine" using Golang.Project done with educational purpose.
+
+> Options
+> ![image](./docs/assets/images/print2.png)
+
+> Usage
+> ![image](./docs/assets/images/print1.png)
+
 
 <h2 id="technologies"> 🛠️ Technologies</h2>
 
-* [TBD](#)
+* [Golang](https://golang.org/)
+* [Wayback Machine](http://wayback.archive.org/)
 
-
-<h2 id="documentation"> 📜 documentation</h2>
-
-* [TBD](#)
 
 <h2 id="contribution">🤝 Contribution</h2>
 

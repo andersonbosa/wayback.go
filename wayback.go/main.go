@@ -10,12 +10,12 @@ import (
 	"strings"
 )
 
-func searchWaybackMachine(domain string, showDate bool) {
-	apiURL := fmt.Sprintf("http://web.archive.org/cdx/search/cdx?url=*.%s/*&output=txt&fl=original,timestamp", domain)
+func searchWaybackMachine(target string, showDate bool) {
+	apiURL := fmt.Sprintf("http://web.archive.org/cdx/search/cdx?url=*.%s/*&output=txt&fl=original,timestamp", target)
 	response, err := http.Get(apiURL)
 
 	if err != nil {
-		fmt.Printf("Error accessing the Wayback Machine for domain: %s\n", domain)
+		fmt.Printf("Error accessing the Wayback Machine for target: %s\n", target)
 		return
 	}
 	defer response.Body.Close()
@@ -23,7 +23,7 @@ func searchWaybackMachine(domain string, showDate bool) {
 	if response.StatusCode == 200 {
 		body, err := ioutil.ReadAll(response.Body)
 		if err != nil {
-			fmt.Printf("Error reading the Wayback Machine response for domain: %s\n", domain)
+			fmt.Printf("Error reading the Wayback Machine response for target: %s\n", target)
 			return
 		}
 
@@ -56,33 +56,42 @@ func searchWaybackMachine(domain string, showDate bool) {
 
 			for _, entry := range dateURLList {
 				if showDate {
-					fmt.Printf("Modification Date for domain %s: %s\n", domain, entry.Timestamp)
-					fmt.Printf("URL: %s\n", entry.URL)
-					fmt.Printf("Link to Web Archive: http://web.archive.org/web/%s/%s\n\n", entry.Timestamp, entry.URL)
+					fmt.Println("---")
+					fmt.Printf("Target: %s\n", entry.URL)
+					fmt.Printf("Last updated %s: %s\n", target, entry.Timestamp)
+					fmt.Printf("Web Archive link: http://web.archive.org/web/%s/%s\n", entry.Timestamp, entry.URL)
 				} else {
 					fmt.Println(entry.URL)
 				}
 			}
 		} else {
-			fmt.Printf("No captures found for domain: %s\n", domain)
+			fmt.Printf("No captures found for target: %s\n", target)
 		}
 	} else {
-		fmt.Printf("Error accessing the Wayback Machine for domain: %s\n", domain)
+		fmt.Printf("Error accessing the Wayback Machine for target: %s\n", target)
 	}
 }
 
 func main() {
-	domains := flag.String("domains", "", "Comma-separated list of domains to search (e.g., example.com,example2.com)")
-	showDate := flag.Bool("details", false, "Show modification date and link to Web Archive")
+	targets := flag.String("targets", "", "Comma-separated list of targets to search (e.g., example.com,example2.com)")
+	showDate := flag.Bool("details", false, "Show details from Web Archive")
 	flag.Parse()
 
-	if *domains == "" {
-		fmt.Println("Usage: wayback.go [-details] -domains domain1,domain2,domain3")
+	if *targets == "" {
+		fmt.Println(`
+_  _  _ _______ __   __ ______  _______ _______ _     _    ______  _____ 
+|  |  | |_____|   \_/   |_____] |_____| |       |____/    |  ____ |     |
+|__|__| |     |    |    |_____] |     | |_____  |    \_ . |_____| |_____|
+                                                           Version: 1.0.0
+                                                    Author: @andersonbosa
+
+USAGE: wayback.go [-details] -targets target1,target2,target3
+`)
 		os.Exit(1)
 	}
 
-	domainList := strings.Split(*domains, ",")
-	for _, domain := range domainList {
-		searchWaybackMachine(domain, *showDate)
+	targetsList := strings.Split(*targets, ",")
+	for _, target := range targetsList {
+		searchWaybackMachine(target, *showDate)
 	}
 }
