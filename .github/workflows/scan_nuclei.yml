@@ -18,7 +18,7 @@ jobs:
           target: https://andersonbosa.github.io/
 
       - name: GitHub Workflow artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: nuclei.log
           path: nuclei.log
@@ -29,7 +29,7 @@ jobs:
           sarif_file: nuclei.sarif
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nuclei.sarif
           path: nuclei.sarif
