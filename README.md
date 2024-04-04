@@ -67,7 +67,7 @@ chmod +x
 
 <h2 id="license"> 📝 License</h2>
 
-This project is under the MIT license.
+This project is under the [CC0-1.0 license](LICENSE.md).
 
 ---
 
