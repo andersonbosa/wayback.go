@@ -19,7 +19,13 @@
 
 <h2 id="about">💬 About</h2>
 
-Search inside by multiple targets within the "wayback machine" using Golang.Project done with educational purpose.
+> Project done with educational purpose.
+> 
+This tool in Golang provides an easy and efficient way to search the Wayback Machine across multiple targets. The tool uses the Wayback Machine API to retrieve archived versions of web pages, and then searches those archived versions using a user-provided search query.
+
+The tool can be used for a variety of purposes, including research, development, and digital preservation. For example, researchers can use the tool to track the evolution of a topic across multiple websites, while developers can use the tool to debug issues or track changes on competitor websites.
+
+<br/>
 
 | Options                                   | Usage                                     |
 | ----------------------------------------- | ----------------------------------------- |
